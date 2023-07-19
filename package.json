@@ -1,0 +1,13 @@
+{
+    "name": "animated-login-form-main",
+    "version": "1.0.0",
+    "author": "Yash Sharma <yashrajsharma231195@gmail.com>",
+    "type": "commonjs",
+    "scripts": {
+        "start": "node D:/Applications/animated-login-form-main/animated-login-form-main/assets/js/main.js"
+    },
+    "dependencies": {
+        "connect": "^3.7.0",
+        "serve-static": "^1.15.0"
+    }
+}
