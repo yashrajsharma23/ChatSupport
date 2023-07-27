@@ -40,8 +40,22 @@ button {
   outline: none;
 }
 
-a {
+/* a {
   text-decoration: none;
+} */
+
+a:link{
+  color: blue;
+  text-decoration: none;
+}
+a:visited {
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
 }
 
 img {
