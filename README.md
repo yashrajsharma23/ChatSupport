@@ -9,6 +9,7 @@
 - Compatible with all mobile devices.
 
 To run on local server
+
     1- You must install connect and server-static modules
         npm install connect serve-static
 
@@ -27,6 +28,6 @@ To run on local server
 
 The server is running and your page html is dipalyed
 
-![preview img](/preview.png)
+![preview img](/preview_login.png)
 =======
 Integrating GPT-3 for any king of global support
