@@ -19,6 +19,7 @@
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
+  /* height: 100%; */
   padding: 0;
   margin: 0;
 }
@@ -32,6 +33,10 @@ button {
 
 body {
   color: var(--white-color);
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  /* background-image: url('../img/batman.jpg'); */
 }
 
 input,
@@ -45,16 +50,16 @@ button {
 } */
 
 a:link{
-  color: blue;
+  color: gainsboro;
   text-decoration: none;
 }
 a:visited {
-  color: blue;
+  color: gainsboro;
   background-color: transparent;
   text-decoration: none;
 }
 a:active {
-  color: yellow;
+  color: blueviolet;
   background-color: transparent;
 }
 
@@ -168,6 +173,7 @@ img {
   font-weight: var(--font-medium);
   cursor: pointer;
   margin-bottom: 2rem;
+  color: black;
 }
 .login__register {
   text-align: center;
