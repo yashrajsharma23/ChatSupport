@@ -1,27 +1,7 @@
-/*=============== SHOW HIDDEN - PASSWORD ===============*/
-// import dynamic from 'next/dynamic'
+const showHiddenPass = () =>{
+   const input = document.getElementById('login_pass'),
+         iconEye = document.getElementById('login-eye')
 
-// const DynamicComponentWithNoSSR = dynamic(() => import('../components/List'), {
-//   ssr: false
-// })
-
-// export default () => DynamicComponentWithNoSSR
-
-// if(typeof window == 'object'){
-//    console.log('Code is running in Browser')
-// }else{
-//    console.log('Code is NOT running in Browser')
-//    window.addEventListener('load', showHiddenPass('login-pass','login-eye'), false);
-// }
-
-// "start": "node D:/Applications/animated-login-form-main/animated-login-form-main/assets/js/main.js"
-
-const showHiddenPass = () =>{//(loginPass, loginEye) =>{
-   const input = document.getElementById('login-pass'),//loginPass),
-         iconEye = document.getElementById('login-eye')//loginEye)
-
-   iconEye.addEventListener('click', () =>{
-      // Change password to text
       if(input.type === 'password'){
          // Switch to text
          input.type = 'text'
@@ -37,7 +17,60 @@ const showHiddenPass = () =>{//(loginPass, loginEye) =>{
          iconEye.classList.remove('ri-eye-line')
          iconEye.classList.add('ri-eye-off-line')
       }
-   })
+   // })
 }
 
-// showHiddenPass('login-pass','login-eye')
+const login_btn = document.getElementById('login_btn');
+
+login_btn.addEventListener('click', function(e){
+   apicall();
+  
+ });
+
+ function apicall(){
+   const email_input = document.getElementById('email').value,
+   password_input = document.getElementById('login_pass').value;
+   
+   const api = 'https://9zfkkhv47e.execute-api.ap-south-1.amazonaws.com/chatsupport/login';
+   const data = JSON.stringify({ "email" : email_input, "password":password_input });
+   const request_body = JSON.stringify({"body": data, "httpMethod":"POST", "routeKey":"POST /login"}) 
+   console.log("Input data request:"+ request_body);
+   axios
+      .post(api, request_body)
+      .then((response) => {
+         console.log(response);
+         // parsed = JSON.parse(response)
+         if(response["data"]["statusCode"]==200){
+            window.alert("Login successful.");
+            msg = JSON.parse(response["data"]["body"])
+            msg = JSON.parse(JSON.stringify(msg['user']));
+            window.location.href="dashboard.html?user="+msg['email'];
+         }else if(response["data"]["statusCode"]==401){
+            var msg = response["data"]["body"];
+            msg = JSON.parse(msg)
+            window.alert(msg['message']);
+         }else{
+            window.alert("Something went wrong...\n Please try again later.");
+            console.log(error);
+         }
+
+      })
+      .catch((error) => {
+         window.alert("Something went wrong...\n Please try again later.");
+         console.log(error);
+      });
+ }
+
+ window.addEventListener("load", function () {
+   //not jquery!
+   // Access the form element...
+   const login_btn = document.getElementById('login_btn');
+   
+   // ...and take over its submit event.
+   login_btn.addEventListener("submit", function (event) {
+      apicall();
+
+       event.preventDefault(); // prevent form submission and reloading the page.
+       //your code to validate or do what you need with the form.
+   });
+});

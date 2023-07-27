@@ -3,20 +3,22 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
 
-      <title>Animated login form - Bedimcode</title>
+      <title>AWS Chat support Application</title>
    </head>
    <body>
       <div class="login">
-         <img src="assets/img/login-bg.png" alt="login image" class="login__img">
+         <img src="assets/img/Phuket.jpg" alt="login image" class="login__img">
 
          <form action="" class="login__form">
+           <a href="#0" id="api_refresh" ><u>Refresh API</u></a>
+
             <h1 class="login__title">Login</h1>
 
             <div class="login__content">
@@ -24,7 +26,7 @@
                   <i class="ri-user-3-line login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type="email" required class="login__input" placeholder=" ">
+                     <input type="email" required class="login__input" id="email" placeholder=" " autocomplete="on">
                      <label for="" class="login__label">Email</label>
                   </div>
                </div>
@@ -33,7 +35,7 @@
                   <i class="ri-lock-2-line login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type="password" required class="login__input" id="login-pass" placeholder=" ">
+                     <input type="password" required class="login__input" id="login_pass" placeholder=" " autocomplete="on">
                      <label for="" class="login__label">Password</label>
                      <i class="ri-eye-off-line login__eye" onclick="showHiddenPass()" id="login-eye"></i>
                   </div>
@@ -49,14 +51,18 @@
                <a href="#" class="login__forgot">Forgot Password?</a>
             </div>
 
-            <button type="submit" class="login__button">Login</button>
+            <button  href="#" type="submit" class="login__button" id="login_btn">Login</button>
+
 
             <p class="login__register">
-               Don't have an account? <a href="#">Register</a>
+               Don't have an account? <a href="signup.html">Signup</a>
             </p>
          </form>
+
+         <div class="line"></div>
+
+         
       </div>
-      
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
    </body>
