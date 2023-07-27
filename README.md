@@ -28,6 +28,6 @@ To run on local server
 
 The server is running and your page html is dipalyed
 
-![preview img](/preview_login.png)
+![preview img](/preview_login_.png)
 =======
 Integrating GPT-3 for any king of global support
